@@ -1,26 +1,35 @@
-export default function Headline() {
+import { INews } from "@/interfaces/News";
+import { getDateDiffInDays } from "@/utils/getDateDiffInDays";
+type Article = {
+  article: INews;
+};
+
+export default function Headline({ article }: Article) {
   return (
     <>
       <div
         className="spotlight"
         style={{
-          background:
-            "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://assets-prd.ignimgs.com/2023/01/23/dead-space-remake-too-scary-1674481345537.png?width=1280') no-repeat center center",
+          background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${article.urlToImage}) no-repeat center center`,
           backgroundSize: "cover",
         }}
       >
         <div className="spotlight-container">
           <div className="news-data">
-            <div className="date">2023-01-23T14:48:04Z</div>
-            <div className="author">by Adele Ankers-Range</div>
-            <div className="source">at IGN</div>
+            <span className="date">
+              {getDateDiffInDays(article.publishedAt)}
+            </span>
+            <span className="author">by {article.author}</span>
+            <span className="source">at {article.source.name}</span>
           </div>
           <div className="news">
             <div className="title">
-              <h2>
-                Dead Space Remake Is Too Scary for Its Own Technical Director -
-                IGN
-              </h2>
+              <a href={article.url} target="_blank" rel="noopener noreferrer">
+                <h2 className="hover:underline">
+                  Dead Space Remake Is Too Scary for Its Own Technical Director
+                  - IGN
+                </h2>
+              </a>
             </div>
             <div className="description">
               <span>

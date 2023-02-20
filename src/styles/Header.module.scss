@@ -1,0 +1,27 @@
+.m-header {
+  @apply flex items-center justify-center gap-x-2;
+  @apply sticky z-50 top-0;
+  @apply bg-gray-500 text-white shadow-lg;
+
+  .wrapper {
+    @apply max-w-screen-xl flex w-full items-center;
+
+    .logo-container {
+      @apply h-full  text-black bg-white p-2 rounded-md mx-2;
+
+      span {
+        @apply font-mono text-2xl font-bold;
+      }
+    }
+
+    .nav-container {
+      @apply h-full;
+
+      .nav-item {
+        @apply hover:text-gray-100;
+      }
+    }
+  }
+  .nav-item {
+  }
+}

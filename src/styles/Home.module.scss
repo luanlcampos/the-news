@@ -1,18 +1,1 @@
-.m-header {
-  // height: 120px;
-  display: flex;
-  @apply items-center gap-x-2;
-  position: sticky;
-  z-index: 100;
-  top: 0;
-  @apply bg-gray-500 text-white;
-
-  .logo-container {
-    // height: 100%;
-    // display: flex;
-    // @apply border border-red-500;
-    // margin: 0 auto;
-    // justify-items: center;
-    // align-items: center;
-  }
-}
+@import "./Header.module.scss";
