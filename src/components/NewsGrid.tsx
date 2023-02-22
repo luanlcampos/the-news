@@ -29,10 +29,15 @@ export default function NewsGrid({ news }: NewsGridProps) {
                 />
               </div>
               <div className="card-content">
-                <div className="card-date font-sans opacity-50">
+                <div className="card-date font-sans text-sm opacity-50">
                   <span>{getDateDiffInDays(article.publishedAt)}</span>
                 </div>
-                <div className="card-title text-lg font-semibold">
+                <div className="card-date font-sans text-[#0D160B]">
+                  <span>
+                    {article.author?.split(",")[0]} at {article.source.name}
+                  </span>
+                </div>
+                <div className="card-title text-lg font-semibold hover:underline">
                   <h3>{article.title}</h3>
                 </div>
                 <div className="card-desc font-serif">
