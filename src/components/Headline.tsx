@@ -8,10 +8,13 @@ export default function Headline({ article }: Article) {
   return (
     <>
       <div
-        className="spotlight"
+        key={self.crypto.randomUUID()}
+        className="spotlight fadeIn"
         style={{
-          background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${article.urlToImage}) no-repeat center center`,
+          background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${article.urlToImage})`,
+          backgroundPosition: "center",
           backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
         }}
       >
         <div className="spotlight-container">

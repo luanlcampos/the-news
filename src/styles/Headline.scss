@@ -16,6 +16,7 @@
       display: flex;
       column-gap: 5px;
       flex-wrap: nowrap;
+      @apply md:flex-col;
     }
 
     .news {
@@ -25,13 +26,13 @@
 
       .title {
         @apply text-3xl font-bold;
-        @apply overflow-hidden;
+        // @apply overflow-hidden;
         @apply font-sans;
       }
 
       .description {
         @apply text-lg;
-        @apply overflow-hidden;
+        // @apply overflow-hidden;
         @apply font-sans;
       }
     }
@@ -51,11 +52,14 @@
     @apply w-full h-full rounded-lg shadow-xl bg-white;
     @apply flex flex-col;
     @apply hover:shadow-2xl transition duration-500 ease-in-out hover:cursor-pointer hover:z-10;
+    @apply transition-opacity 
+    duration-500 
+    ease-out opacity-100;
 
     .card-image {
-      @apply rounded-t-lg w-full;
+      @apply rounded-t-lg h-[50%];
       img {
-        @apply rounded-t-lg h-full w-full;
+        @apply rounded-t-lg w-full h-full object-center aspect-video;
       }
     }
     .card-content {

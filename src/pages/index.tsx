@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Headline from "@/components/Headline";
 import Pagination from "@/components/Pagination";
 import NewsGrid from "@/components/NewsGrid";
+import Loading from "@/components/Loading";
 import { useState, useEffect } from "react";
 import { INews } from "@/interfaces/News";
 import { NewsAPIResponse } from "@/interfaces/NewsAPI";
@@ -35,36 +36,49 @@ export default function Home() {
     getNews("us", page, category)
       .then((data) => {
         setNews(data?.articles || []);
+        window.scrollTo({ top: 0, behavior: "smooth" });
         setNumOfPages(Math.ceil((data?.totalResults || 12) / 12));
+        localStorage.setItem("newsAPIData", JSON.stringify(data));
         setLoading(false);
       })
       .catch((err) => {
         console.warn(err);
+        window.alert(err + "\n Trying to use cached data");
+        const cachedData = localStorage.getItem("newsAPIData");
+        if (cachedData) {
+          const data = JSON.parse(cachedData) as NewsAPIResponse;
+          setNews(data.articles);
+        }
         setError(true);
         setLoading(false);
       });
   }, [page, category]);
-
-  if (loading) return <div>Loading...</div>;
 
   return (
     <div>
       <Head>
         <title>The News - Your Tech Headline News</title>
       </Head>
-      <Header />
+      <Header setCategory={setCategory} category={category} />
+
       <main className="relative w-full flex flex-col items-center">
-        <div className="max-w-screen-xl">
-          <Headline article={news[0]} />
-          <section className="m-5">
-            <NewsGrid news={news} />
-            <Pagination
-              numOfPages={numOfPages}
-              setPage={setPage}
-              active={page}
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className="max-w-screen-xl">
+            <Headline
+              article={news.find((article) => article.urlToImage) || news[0]}
             />
-          </section>
-        </div>
+            <section className="m-5">
+              <NewsGrid news={news} />
+              <Pagination
+                numOfPages={numOfPages}
+                setPage={setPage}
+                active={page}
+              />
+            </section>
+          </div>
+        )}
       </main>
     </div>
   );

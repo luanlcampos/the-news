@@ -10,11 +10,23 @@ export default function NewsGrid({ news }: NewsGridProps) {
   return (
     <div className="hl">
       {news.map((article: INews, i: number) => (
-        <Link href={article.url} passHref key={i} legacyBehavior>
+        <Link
+          href={article.url}
+          passHref
+          key={self.crypto.randomUUID()}
+          legacyBehavior
+        >
           <a target="_blank" rel="noopener noreferrer">
-            <div className="news-card">
+            <div className="news-card fadeIn">
               <div className="card-image">
-                <img src={article.urlToImage} alt={article.title} />
+                <img
+                  src={
+                    article.urlToImage
+                      ? article.urlToImage
+                      : "http://via.placeholder.com/298x150/666666/FFFFFF/?text=The News"
+                  }
+                  alt={article.title}
+                />
               </div>
               <div className="card-content">
                 <div className="card-date font-sans opacity-50">
