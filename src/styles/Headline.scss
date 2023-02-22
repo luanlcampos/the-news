@@ -16,7 +16,7 @@
       display: flex;
       column-gap: 5px;
       flex-wrap: nowrap;
-      @apply md:flex-col;
+      @apply flex-col md:flex-row;
     }
 
     .news {
