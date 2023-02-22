@@ -22,7 +22,7 @@ export default function Headline({ article }: Article) {
             <span className="date">
               {getDateDiffInDays(article.publishedAt)}
             </span>
-            <span className="author">by {article.author}</span>
+            <span className="author">by {article.author?.split(",")[0]}</span>
             <span className="source">at {article.source.name}</span>
           </div>
           <div className="news">
