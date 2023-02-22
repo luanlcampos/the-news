@@ -20,10 +20,8 @@ export default function Headline({ article }: Article) {
         <div className="spotlight-container">
           <div className="news-data">
             <span className="date">
-              {getDateDiffInDays(article.publishedAt)}
+              {getDateDiffInDays(article.publishedAt)}{" "}
             </span>
-            <span className="author">by {article.author?.split(",")[0]}</span>
-            <span className="source">at {article.source.name}</span>
           </div>
           <div className="news">
             <div className="title">
@@ -34,12 +32,14 @@ export default function Headline({ article }: Article) {
                 </h2>
               </a>
             </div>
-            <div className="description">
-              <span>
-                Dead Space remake{`'`}s technical director has admitted that he
-                struggles to play the game outside of daylight hours because he
-                finds it too scary.
+            <div className="news-data">
+              <span className="author">
+                by {article.author?.split(",")[0]}{" "}
               </span>
+              <span className="source">at {article.source.name}</span>
+            </div>
+            <div className="description">
+              <span>{article.description}</span>
             </div>
           </div>
         </div>

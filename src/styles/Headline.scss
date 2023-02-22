@@ -1,28 +1,20 @@
+@import "./NewsCard.scss";
+
 .spotlight {
-  @apply w-full h-full;
-  height: calc(100vh - 140px - 1rem);
-  padding-bottom: 1rem;
-  padding-left: 1rem;
+  @apply w-full h-full pb-4 pl-4;
+  height: calc(100dvh - 140px - 1rem);
+
   .spotlight-container {
-    min-height: 100%;
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    @apply min-h-full w-8/12;
+    @apply flex flex-col justify-end;
 
     .news-data {
-      color: #ffffffdd;
-      width: 100%;
-      display: flex;
-      column-gap: 5px;
-      flex-wrap: nowrap;
+      @apply text-white opacity-50 w-full gap-x-2 flex-wrap;
       @apply flex-col md:flex-row;
     }
 
     .news {
-      color: #fff;
-      width: 100%;
-      min-width: 0;
+      @apply text-white w-full min-w-0;
 
       .title {
         @apply text-3xl font-bold;
@@ -35,36 +27,6 @@
         // @apply overflow-hidden;
         @apply font-sans;
       }
-    }
-  }
-}
-
-.hl {
-  // @apply flex flex-wrap items-center justify-center w-full h-full;
-  @apply grid gap-3;
-  @apply grid-cols-1;
-  @apply md:grid-cols-2;
-  @apply lg:grid-cols-3;
-  @apply xl:grid-cols-4;
-  margin: 0 auto;
-
-  .news-card {
-    @apply w-full h-full rounded-lg shadow-xl bg-white;
-    @apply flex flex-col;
-    @apply hover:shadow-2xl transition duration-500 ease-in-out hover:cursor-pointer hover:z-10;
-    @apply transition-opacity 
-    duration-500 
-    ease-out opacity-100;
-
-    .card-image {
-      @apply rounded-t-lg h-[50%];
-      img {
-        @apply rounded-t-lg w-full h-full object-center aspect-video;
-      }
-    }
-    .card-content {
-      @apply flex flex-col h-full p-2;
-      @apply p-3;
     }
   }
 }
