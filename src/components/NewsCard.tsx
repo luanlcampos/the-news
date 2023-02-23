@@ -8,6 +8,9 @@ type PropType = {
 };
 
 export default function NewsCard({ article }: PropType) {
+  const urlToImage =
+    article.urlToImage ??
+    "http://via.placeholder.com/298x150/666666/FFFFFF/?text=The News";
   return (
     <Link
       href={article.url}
@@ -21,14 +24,8 @@ export default function NewsCard({ article }: PropType) {
             <SeeMoreSVG className="w-10 h-10" />
           </div>
           <div className="card-image">
-            <img
-              src={
-                article.urlToImage
-                  ? article.urlToImage
-                  : "http://via.placeholder.com/298x150/666666/FFFFFF/?text=The News"
-              }
-              alt={article.title}
-            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={urlToImage} alt={article.title} />
           </div>
           <div className="card-content">
             <div className="card-date text-sm opacity-50 z-10">
