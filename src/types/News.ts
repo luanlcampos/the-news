@@ -13,8 +13,7 @@
             "publishedAt": "2023-02-20T00:11:03Z",
             "content": "DAYTONA BEACH, Fla. -- Ricky Stenhouse Jr. won the Daytona 500 in double overtime and under caution Sunday night in the longest running of \"The Great American Race.''\r\nThe two overtimes pushed the 65… [+4447 chars]"
 */
-
-export interface INews {
+export type INews = {
   source: {
     id: string | null;
     name: string;
@@ -27,4 +26,4 @@ export interface INews {
   urlToImage: string;
   publishedAt: string;
   content: string;
-}
+};

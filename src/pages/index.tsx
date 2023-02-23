@@ -5,8 +5,8 @@ import Pagination from "@/components/Pagination";
 import NewsGrid from "@/components/NewsGrid";
 import Loading from "@/components/Loading";
 import { useState, useEffect } from "react";
-import { INews } from "@/interfaces/News";
-import { NewsAPIResponse } from "@/interfaces/NewsAPI";
+import { INews } from "@/types/News";
+import { NewsAPIResponse } from "@/types/NewsAPI";
 
 async function getNews(loc: string, page: number, category: string) {
   const res = await fetch(

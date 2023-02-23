@@ -24,6 +24,7 @@ export default function NewsCard({ article }: PropType) {
             <SeeMoreSVG className="w-10 h-10" />
           </div>
           <div className="card-image">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={urlToImage} alt={article.title} />
           </div>
           <div className="card-content">

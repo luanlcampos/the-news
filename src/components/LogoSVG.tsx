@@ -1,8 +1,3 @@
-type Props = {
-  w: number;
-  h: number;
-};
-
 const SvgComponent = ({ ...props }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" {...props}>
     <defs>
