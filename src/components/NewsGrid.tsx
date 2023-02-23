@@ -1,4 +1,4 @@
-import { INews } from "@/interfaces/News";
+import { INews } from "@/types/News";
 import NewsCard from "./NewsCard";
 
 type NewsGridProps = {
