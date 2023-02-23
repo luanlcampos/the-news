@@ -2,15 +2,16 @@
   @apply flex items-center justify-center gap-x-2;
   @apply sticky z-50 top-0;
   @apply bg-gray-500 text-white shadow-lg;
+  @apply bg-[#1F2937];
 
   .wrapper {
     @apply max-w-screen-xl flex w-full items-center;
 
     .logo-container {
-      @apply h-full  text-black bg-white p-2 rounded-md mx-2;
+      @apply mr-3 hover:cursor-pointer;
 
-      span {
-        @apply font-mono text-2xl font-bold;
+      & {
+        @apply h-full;
       }
     }
 
@@ -18,7 +19,11 @@
       @apply h-full;
 
       .nav-item {
-        @apply hover:text-gray-100 cursor-pointer;
+        @apply hover:text-gray-200 cursor-pointer;
+        @apply hover:text-blue-200;
+      }
+      .active {
+        @apply text-[#00ccff];
       }
     }
   }

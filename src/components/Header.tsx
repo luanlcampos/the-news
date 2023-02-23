@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LogoSVG from "./LogoSVG";
 
 type HeaderProps = {
   category: string;
@@ -10,16 +11,17 @@ export default function Header({ category, setCategory }: HeaderProps) {
     <header className="m-header">
       <div className="wrapper">
         <div className="logo-container">
-          <span>
-            {" "}
-            <Link href="/">The News</Link>{" "}
-          </span>
+          {" "}
+          <Link legacyBehavior href="/">
+            <LogoSVG className="w-40" />
+            {/* The News */}
+          </Link>{" "}
         </div>
         <nav className="nav-container h-full">
           <ul className="flex flex-row h-full gap-x-3">
             <li
               className={`nav-item ${
-                category === "technology" ? "font-bold" : ""
+                category === "technology" ? "font-bold active" : ""
               }`}
               onClick={() => setCategory("technology")}
             >
@@ -27,7 +29,7 @@ export default function Header({ category, setCategory }: HeaderProps) {
             </li>
             <li
               className={`nav-item ${
-                category === "science" ? "font-bold" : ""
+                category === "science" ? "font-bold active" : ""
               }`}
               onClick={() => setCategory("science")}
             >
@@ -35,7 +37,7 @@ export default function Header({ category, setCategory }: HeaderProps) {
             </li>
             <li
               className={`nav-item ${
-                category === "business" ? "font-bold" : ""
+                category === "business" ? "font-bold active" : ""
               }`}
               onClick={() => setCategory("business")}
             >

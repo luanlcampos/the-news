@@ -9,7 +9,7 @@
     @apply flex flex-col justify-end;
 
     .news-data {
-      @apply text-white opacity-50 w-full gap-x-2 flex-wrap;
+      @apply text-white text-opacity-75 w-full gap-x-2 flex-wrap;
       @apply flex-col md:flex-row;
     }
 
@@ -18,14 +18,10 @@
 
       .title {
         @apply text-3xl font-bold;
-        // @apply overflow-hidden;
-        @apply font-sans;
       }
 
       .description {
         @apply text-lg;
-        // @apply overflow-hidden;
-        @apply font-sans;
       }
     }
   }

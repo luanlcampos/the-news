@@ -12,18 +12,7 @@ export default function Pagination({
   active,
 }: PaginationProps) {
   return (
-    <div className="pagination flex flex-row w-full justify-center my-3 shadow-lg">
-      {/* back arrow */}
-      {/* <button
-        onClick={() => setPage(active - 1)}
-        className={`page flex flex-row justify-center items-center text-sm
-            border border-gray-400 text-black opacity-50 px-3 py-3
-            hover:bg-gray-300 hover:text-black hover:font-bold hover:cursor-pointer
-            disabled:bg-gray-200 disabled:cursor-not-allowed;
-            `}
-      >
-        {"<"}
-      </button> */}
+    <div className="pagination flex flex-row w-full justify-center my-3">
       {/* page numbers */}
       {Array.from(Array(numOfPages)).map((page, i) => (
         <button
@@ -32,10 +21,10 @@ export default function Pagination({
           border border-gray-400 text-black opacity-50 px-3 py-3 
           ${
             active === i + 1
-              ? "bg-gray-400 text-black opacity-100 font-bold"
-              : ""
+              ? "bg-blue-500 text-white font-bold"
+              : "bg-white text-gray-500"
           }
-          hover:bg-gray-300 hover:text-black hover:font-bold hover:cursor-pointer
+          hover:bg-gray-200 hover:text-black hover:font-bold hover:cursor-pointer
           disabled:cursor-none
           `}
           key={i}
@@ -44,17 +33,6 @@ export default function Pagination({
           {i + 1}
         </button>
       ))}
-      {/* forward arrow */}
-      {/* <button
-        onClick={() => setPage(active + 1)}
-        disabled={active === numOfPages}
-        className={`page flex flex-row justify-center items-center text-sm
-            border border-gray-400 text-black opacity-50 px-3 py-3
-            hover:bg-gray-300 hover:text-black hover:font-bold hover:cursor-pointer
-            `}
-      >
-        {">"}
-      </button> */}
     </div>
   );
 }

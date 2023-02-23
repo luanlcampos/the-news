@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Head from "next/head";
 import Header from "@/components/Header";
 import Headline from "@/components/Headline";
@@ -17,8 +16,6 @@ async function getNews(loc: string, page: number, category: string) {
   if (res.ok) {
     // convert to json and instantiate data to INews[]
     const data = await res.json();
-
-    console.log(data);
     return data as NewsAPIResponse;
   }
 }
@@ -33,10 +30,14 @@ export default function Home() {
   const [category, setCategory] = useState("technology");
 
   useEffect(() => {
+    setPage(1);
+  }, [category]);
+
+  useEffect(() => {
     getNews("us", page, category)
       .then((data) => {
-        setNews(data?.articles || []);
         window.scrollTo({ top: 0, behavior: "smooth" });
+        setNews(data?.articles || []);
         setNumOfPages(Math.ceil((data?.totalResults || 12) / 12));
         localStorage.setItem("newsAPIData", JSON.stringify(data));
         setLoading(false);

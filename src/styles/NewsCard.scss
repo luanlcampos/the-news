@@ -1,3 +1,15 @@
+.card-overlay {
+  @apply absolute w-full h-full -z-10 bottom-0 left-0 right-0;
+  @apply rounded-lg opacity-0 flex items-center justify-center text-white bg-[#00ccff];
+  @apply hover:opacity-100 hover:text-[#FFD100];
+  @apply ease-in duration-500 -translate-y-1/2;
+}
+
+.news-card:hover .card-overlay {
+  opacity: 1;
+  @apply translate-y-0 z-20;
+}
+
 .news-grid {
   @apply grid gap-3;
   @apply grid-cols-1;
@@ -7,9 +19,9 @@
   margin: 0 auto;
 
   .news-card {
-    @apply w-full h-full rounded-lg shadow-xl bg-white;
+    @apply w-full h-full rounded-lg shadow-xl bg-white relative;
     @apply flex flex-col;
-    @apply hover:shadow-2xl hover:cursor-pointer hover:z-10;
+    // @apply hover:shadow-2xl hover:cursor-pointer;
 
     .card-image {
       @apply rounded-t-lg h-[50%];
@@ -18,8 +30,18 @@
       }
     }
     .card-content {
-      @apply flex flex-col h-full p-2;
+      @apply flex flex-col h-full p-2 gap-y-1;
       @apply p-3;
+
+      .card-desc,
+      .card-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-clamp: 3;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
     }
   }
 }
